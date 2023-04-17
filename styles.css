@@ -21,20 +21,45 @@ nav.navColor {
     -moz-box-shadow: 0px 3px 7px 1px rgba(0,0,0,0.57);
     box-shadow: 0px 3px 7px 1px rgba(0,0,0,0.57);
 }
+/* table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+th {
+  background-color:#EADDCA;
+  opacity: 0.5;
+  font-size: ;
+  padding: 8px;
+}
+td,
+th {
+  padding: 8px;
+  border: 1px solid black;
+}
+
+td {
+  padding: 8px;
+  border-bottom: 1px solid black;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+  opacity: 0.5;
+}
 
 /* button */
-button.btnStyle {
-    background-color: #D27D2D;
+button i {
+    background-color: #a52a2a;
     font-size: 30px;
     padding: 10px;
     margin: 15px;
-    border-radius: 35px;
-    color: #fff;
+    border-radius: 50%;
     border: none;
     text-align: center;
 }
-
-
 
 /* footer */
 footer {
