@@ -153,7 +153,7 @@ addBookBtn.addEventListener('click', function() {
   // Create a submit button
   const submitBtn = document.createElement('button');
   submitBtn.type = 'submit';
-  submitBtn.textContent = '+';
+  submitBtn.innerHTML = '<i class="fa-regular fa-square-plus fa-xl" style="color: #808000;"></i>';
 
   // Add the form elements to the form
   form.appendChild(titleInput);
