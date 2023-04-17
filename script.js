@@ -52,7 +52,7 @@ function displayBooks() {
   headerRow.appendChild(readHeader);
 
   const deleteHeader = document.createElement('th');
-  deleteHeader.textContent = '';
+  deleteHeader.textContent = 'Remove';
   headerRow.appendChild(deleteHeader);
 
   // Add the header row to the table
