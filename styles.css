@@ -22,12 +22,37 @@ nav.navColor {
     box-shadow: 0px 3px 7px 1px rgba(0,0,0,0.57);
 }
 /* input form */
+.titleInput,
+.authorInput,
+.pagesInput {
+    font-size: 20px;
+    outline: none;
+    margin-right: 5px;
+    margin-left: 5px;
+    background-color: #EADDCA;
+    cursor: pointer;
+    padding-left: 5px;
+    border: none;
+}
+.readLabel {
+    font-size: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+    background-color: #EADDCA;
+    padding-left: 3px;
+    width: 60px;
+    color: #808080;
+}
+input[type=checkbox] {
+    display: none;
+}
 
 /* table */
 table {
   border-collapse: collapse;
   width: 100%;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 th {
@@ -64,6 +89,13 @@ button.btnStyle {
 .deleteBtn{
     background-color: #D27D2D;
     border: none;
+}
+.submitBtn{
+    padding: 4px;
+    background-color: #808000;
+    border: none;
+    border-radius: 7px;
+    margin-left: 5px;
 }
 
 /* footer */
