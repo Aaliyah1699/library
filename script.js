@@ -103,7 +103,7 @@ function displayBooks() {
 function addDeleteButton(cell, index) {
   // Create a delete button
   const deleteBtn = document.createElement('button');
-  deleteBtn.textContent = '-';
+  deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can fa-2xl" style="color: #800000;"></i>';
   cell.appendChild(deleteBtn);
 
   // Add an event listener to the delete button
