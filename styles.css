@@ -25,13 +25,13 @@ nav.navColor {
 table {
   border-collapse: collapse;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 th {
   background-color:#EADDCA;
   opacity: 0.3;
-  font-size: 20px;
+  font-size: 24px;
   padding: 8px;
 }
 td,
@@ -39,7 +39,10 @@ th {
   padding: 8px;
   border: 1px solid black;
 }
-
+tr {
+    font-size: 20px;
+    
+}
 td {
   padding: 8px;
   border-bottom: 1px solid black;
@@ -54,6 +57,11 @@ button.btnStyle {
     border-radius: 50%;
     border: none;
     text-align: center;
+}
+
+.deleteBtn{
+    background-color: #D27D2D;
+    border: none;
 }
 
 /* footer */
