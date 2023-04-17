@@ -22,6 +22,18 @@ nav.navColor {
     box-shadow: 0px 3px 7px 1px rgba(0,0,0,0.57);
 }
 
+/* button */
+button.btnStyle {
+    background-color: #D27D2D;
+    font-size: 30px;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 35px;
+    color: #fff;
+    border: none;
+    text-align: center;
+}
+
 
 
 /* footer */
