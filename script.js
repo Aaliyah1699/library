@@ -19,3 +19,27 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 // submit button
+submitBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // prevent form submission
+
+    let title = titleInput.value;
+    let author = authorInput.value;
+    let pages = pagesInput.value;
+    let read = readInput.checked;
+
+    if (title && author && pages) {
+        // add book to library
+        addBookToLibrary(title, author, pages, read);
+
+        // create card to add to the page
+        const bookCard = createBookCard(title, author, pages, read);
+        cardContainer.appendChild(bookCard);
+
+        // reset form
+        card.remove();
+        titleInput.value = '';
+        authorInput.value = '';
+        pagesInput.value = '';
+        readInput.checked = false;
+    }
+});
