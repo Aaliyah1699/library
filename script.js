@@ -132,25 +132,30 @@ addBookBtn.addEventListener('click', function() {
   titleInput.type = 'text';
   titleInput.placeholder = 'Title';
   titleInput.required = true;
+  titleInput.classList.add('titleInput');
 
   const authorInput = document.createElement('input');
   authorInput.type = 'text';
   authorInput.placeholder = 'Author';
   authorInput.required = true;
+  authorInput.classList.add('authorInput');
 
   const pagesInput = document.createElement('input');
   pagesInput.type = 'number';
   pagesInput.placeholder = 'Pages';
   pagesInput.required = true;
   pagesInput.min = 0;
+  pagesInput.classList.add('pagesInput');
 
   const readInput = document.createElement('input');
   readInput.type = 'checkbox';
   readInput.id = 'read';
+  readInput.classList.add('readInput');
   
   const readLabel = document.createElement('label');
   readLabel.htmlFor = 'read';
   readLabel.textContent = 'Read';
+  readLabel.classList.add('readLabel');
 
   // Create a submit button
   const submitBtn = document.createElement('button');
