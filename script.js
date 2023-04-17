@@ -12,6 +12,11 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+// Toggle read status method
+Book.prototype.toggleRead = function() {
+  this.read = !this.read;
+};
+
 // add book to library
 function addBookToLibrary(title, author, pages, read) {
     let newBook = new Book(title, author, pages, read);
