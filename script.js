@@ -85,22 +85,8 @@ function displayBooks() {
 
     const deleteCell = document.createElement('td');
 
-    // Create a delete button
-    const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = 'Delete';
-    deleteCell.appendChild(deleteBtn);
-
-    // Add an event listener to the delete button
-    deleteBtn.addEventListener('click', function() {
-      // Get the index of the book from the data-index attribute
-      const index = parseInt(row.getAttribute('data-index'));
-
-      // Remove the book from the library
-      myLibrary.splice(index, 1);
-
-      // Update the display
-      displayBooks();
-    });
+   // Add the delete button to the cell
+    addDeleteButton(deleteCell, i);
 
     // Add the delete cell to the row
     row.appendChild(deleteCell);
@@ -113,6 +99,27 @@ function displayBooks() {
   cardContainer.appendChild(tableEl);
 }
 
+// Function to add a delete button to a cell
+function addDeleteButton(cell, index) {
+  // Create a delete button
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = '-';
+  cell.appendChild(deleteBtn);
+
+  // Add an event listener to the delete button
+  deleteBtn.addEventListener('click', function() {
+// Get the index of the book from the data-index attribute
+  const index = parseInt(cell.parentElement.getAttribute('data-index'));
+
+  // Remove the book from the library
+  myLibrary.splice(index, 1);
+
+  // Update the display
+  displayBooks();
+});
+cell.appendChild(deleteBtn);
+}
+
 // Add event listener to the add book button
 addBookBtn.addEventListener('click', function() {
   // Display a form to add a new book
@@ -122,14 +129,18 @@ addBookBtn.addEventListener('click', function() {
   const titleInput = document.createElement('input');
   titleInput.type = 'text';
   titleInput.placeholder = 'Title';
+  titleInput.required = true;
 
   const authorInput = document.createElement('input');
   authorInput.type = 'text';
   authorInput.placeholder = 'Author';
+  authorInput.required = true;
 
   const pagesInput = document.createElement('input');
   pagesInput.type = 'number';
   pagesInput.placeholder = 'Pages';
+  pagesInput.required = true;
+  pagesInput.min = 0;
 
   const readInput = document.createElement('input');
   readInput.type = 'checkbox';
@@ -137,7 +148,7 @@ addBookBtn.addEventListener('click', function() {
   
   const readLabel = document.createElement('label');
   readLabel.htmlFor = 'read';
-  readLabel.textContent = 'Read';
+  readLabel.textContent = '';
 
   // Create a submit button
   const submitBtn = document.createElement('button');
