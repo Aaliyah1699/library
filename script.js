@@ -18,28 +18,39 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(newBook);
 }
 
-// submit button
-submitBtn.addEventListener('click', (e) => {
-    e.preventDefault(); // prevent form submission
+function displayBooks() {
+  // Clear the card container first
+  while (cardContainer.firstChild) {
+    cardContainer.removeChild(cardContainer.firstChild);
+  }
 
-    let title = titleInput.value;
-    let author = authorInput.value;
-    let pages = pagesInput.value;
-    let read = readInput.checked;
+  // Loop through the library array
+  for (let i = 0; i < myLibrary.length; i++) {
+    const book = myLibrary[i];
 
-    if (title && author && pages) {
-        // add book to library
-        addBookToLibrary(title, author, pages, read);
+    // Create a new table row element
+    const row = document.createElement('tr');
 
-        // create card to add to the page
-        const bookCard = createBookCard(title, author, pages, read);
-        cardContainer.appendChild(bookCard);
+    // Create table cells for each property of the book object
+    const titleCell = document.createElement('td');
+    titleCell.textContent = book.title;
 
-        // reset form
-        card.remove();
-        titleInput.value = '';
-        authorInput.value = '';
-        pagesInput.value = '';
-        readInput.checked = false;
-    }
-});
+    const authorCell = document.createElement('td');
+    authorCell.textContent = book.author;
+
+    const pagesCell = document.createElement('td');
+    pagesCell.textContent = book.pages;
+
+    const readCell = document.createElement('td');
+    readCell.textContent = book.read ? 'Read' : 'Not read';
+
+    // Add the cells to the row
+    row.appendChild(titleCell);
+    row.appendChild(authorCell);
+    row.appendChild(pagesCell);
+    row.appendChild(readCell);
+
+    // Add the row to the card container
+    cardContainer.appendChild(row);
+  }
+}
