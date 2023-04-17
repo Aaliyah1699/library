@@ -125,6 +125,7 @@ cell.appendChild(deleteBtn);
 addBookBtn.addEventListener('click', function() {
   // Display a form to add a new book
   const form = document.createElement('form');
+    form.classList.add('form');
 
   // Create input fields for the book properties
   const titleInput = document.createElement('input');
