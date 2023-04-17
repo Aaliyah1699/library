@@ -5,7 +5,8 @@
     font-family: 'Noto Serif','Times New Roman', Times, serif;
 }
 body {
-    
+    background: rgb(165,42,42);
+    background: linear-gradient(90deg, rgba(165,42,42,1) 20%, rgba(210,125,45,1) 88%);
 }
 
 
