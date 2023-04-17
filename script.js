@@ -148,7 +148,7 @@ addBookBtn.addEventListener('click', function() {
   
   const readLabel = document.createElement('label');
   readLabel.htmlFor = 'read';
-  readLabel.textContent = '';
+  readLabel.textContent = 'Read';
 
   // Create a submit button
   const submitBtn = document.createElement('button');
