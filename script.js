@@ -23,41 +23,94 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(newBook);
 }
 
+// Display the books in the library
 function displayBooks() {
-  // Clear the card container first
-  while (cardContainer.firstChild) {
-    cardContainer.removeChild(cardContainer.firstChild);
-  }
+  // Clear the card container
+  cardContainer.innerHTML = '';
 
-  // Loop through the library array
+  // Create a table element
+  const tableEl = document.createElement('table');
+
+  // Create a table header row
+  const headerRow = document.createElement('tr');
+
+  // Create table header cells for each column
+  const titleHeader = document.createElement('th');
+  titleHeader.textContent = 'Title';
+  headerRow.appendChild(titleHeader);
+
+  const authorHeader = document.createElement('th');
+  authorHeader.textContent = 'Author';
+  headerRow.appendChild(authorHeader);
+
+  const pagesHeader = document.createElement('th');
+  pagesHeader.textContent = 'Pages';
+  headerRow.appendChild(pagesHeader);
+
+  const readHeader = document.createElement('th');
+  readHeader.textContent = 'Read';
+  headerRow.appendChild(readHeader);
+
+  const deleteHeader = document.createElement('th');
+  deleteHeader.textContent = '';
+  headerRow.appendChild(deleteHeader);
+
+  // Add the header row to the table
+  tableEl.appendChild(headerRow);
+
+  // Loop through the books in the library
   for (let i = 0; i < myLibrary.length; i++) {
     const book = myLibrary[i];
 
-    // Create a new table row element
+    // Create a table row for the book
     const row = document.createElement('tr');
+    row.setAttribute('data-index', i);
 
-    // Create table cells for each property of the book object
+    // Create table cells for each column
     const titleCell = document.createElement('td');
     titleCell.textContent = book.title;
+    row.appendChild(titleCell);
 
     const authorCell = document.createElement('td');
     authorCell.textContent = book.author;
+    row.appendChild(authorCell);
 
     const pagesCell = document.createElement('td');
     pagesCell.textContent = book.pages;
+    row.appendChild(pagesCell);
 
     const readCell = document.createElement('td');
-    readCell.textContent = book.read ? 'Read' : 'Not read';
-
-    // Add the cells to the row
-    row.appendChild(titleCell);
-    row.appendChild(authorCell);
-    row.appendChild(pagesCell);
+    readCell.textContent = book.read ? 'Read' : 'Not read yet';
     row.appendChild(readCell);
 
-    // Add the row to the card container
-    cardContainer.appendChild(row);
+    const deleteCell = document.createElement('td');
+
+    // Create a delete button
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    deleteCell.appendChild(deleteBtn);
+
+    // Add an event listener to the delete button
+    deleteBtn.addEventListener('click', function() {
+      // Get the index of the book from the data-index attribute
+      const index = parseInt(row.getAttribute('data-index'));
+
+      // Remove the book from the library
+      myLibrary.splice(index, 1);
+
+      // Update the display
+      displayBooks();
+    });
+
+    // Add the delete cell to the row
+    row.appendChild(deleteCell);
+
+    // Add the row to the table
+    tableEl.appendChild(row);
   }
+
+  // Add the table to the card container
+  cardContainer.appendChild(tableEl);
 }
 
 // Add event listener to the add book button
@@ -89,7 +142,7 @@ addBookBtn.addEventListener('click', function() {
   // Create a submit button
   const submitBtn = document.createElement('button');
   submitBtn.type = 'submit';
-  submitBtn.textContent = 'Add Book';
+  submitBtn.textContent = '+';
 
   // Add the form elements to the form
   form.appendChild(titleInput);
