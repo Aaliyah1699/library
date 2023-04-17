@@ -103,6 +103,7 @@ function displayBooks() {
 function addDeleteButton(cell, index) {
   // Create a delete button
   const deleteBtn = document.createElement('button');
+  deleteBtn.classList.add('deleteBtn');
   deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can fa-2xl" style="color: #800000;"></i>';
   cell.appendChild(deleteBtn);
 
@@ -153,6 +154,7 @@ addBookBtn.addEventListener('click', function() {
   // Create a submit button
   const submitBtn = document.createElement('button');
   submitBtn.type = 'submit';
+  submitBtn.classList.add('submitBtn');
   submitBtn.innerHTML = '<i class="fa-regular fa-square-plus fa-xl" style="color: #808000;"></i>';
 
   // Add the form elements to the form
