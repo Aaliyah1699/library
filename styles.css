@@ -42,6 +42,7 @@ nav.navColor {
     padding-left: 3px;
     width: 60px;
     color: #808080;
+    border-radius: 7px;
 }
 input[type=checkbox] {
     display: none;
