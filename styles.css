@@ -33,6 +33,7 @@ nav.navColor {
     cursor: pointer;
     padding-left: 5px;
     border: none;
+    border-radius: 7px;
 }
 .readLabel {
     font-size: 20px;
