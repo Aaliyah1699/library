@@ -19,10 +19,18 @@ class Book {
 // Toggle read status method
 
 // add book to library
-function addBookToLibrary(title, author, pages, read) {
+class addBookToLibrary {
+  constructor(){
+    this.books = [];
+    this.cardContainer = document.querySelector("#cardContainer");
+  }
+  addBook(title, author, pages, read) {
   let newBook = new Book(title, author, pages, read);
-  myLibrary.push(newBook);
+  this.books.push(newBook);
 }
+  removeBook(index) {
+  this.books.splice(index, 1);
+  }
 
 // Display the books in the library
 function displayBooks() {
