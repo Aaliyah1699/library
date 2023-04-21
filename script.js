@@ -1,8 +1,5 @@
 // Variables
 const addBookBtn = document.querySelector("#addBookBtn");
-//const cardContainer = document.querySelector("#cardContainer");
-// library array
-//let myLibrary = [];
 
 // book constructor
 class Book {
@@ -16,7 +13,6 @@ class Book {
     this.read = !this.read;
   }
 }
-// Toggle read status method
 
 // add book to library
 class addBookToLibrary {
@@ -119,7 +115,6 @@ class addBookToLibrary {
 
     // Add an event listener to the delete button
     deleteBtn.addEventListener("click", () => {
-      //this.addDeleteButton = this.addDeleteButton.bind(this);
       // Get the index of the book from the data-index attribute
       const index = parseInt(cell.parentElement.getAttribute("data-index"));
 
@@ -129,8 +124,6 @@ class addBookToLibrary {
       // Update the display
       this.displayBooks();
     });
-
-    //cell.appendChild(deleteBtn);
   }
 }
 let myLibrary = new addBookToLibrary();
