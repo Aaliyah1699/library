@@ -20,94 +20,94 @@ class Book {
 
 // add book to library
 class addBookToLibrary {
-  constructor(){
+  constructor() {
     this.books = [];
     this.cardContainer = document.querySelector("#cardContainer");
   }
   addBook(title, author, pages, read) {
-  let newBook = new Book(title, author, pages, read);
-  this.books.push(newBook);
-}
+    let newBook = new Book(title, author, pages, read);
+    this.books.push(newBook);
+  }
   removeBook(index) {
-  this.books.splice(index, 1);
+    this.books.splice(index, 1);
   }
 
-// Display the books in the library
- displayBooks() {
-  // Clear the card container
-  this.cardContainer.innerHTML = "";
+  // Display the books in the library
+  displayBooks() {
+    // Clear the card container
+    this.cardContainer.innerHTML = "";
 
-  // Create a table element
-  const tableEl = document.createElement("table");
+    // Create a table element
+    const tableEl = document.createElement("table");
 
-  // Create a table header row
-  const headerRow = document.createElement("tr");
+    // Create a table header row
+    const headerRow = document.createElement("tr");
 
-  // Create table header cells for each column
-  const titleHeader = document.createElement("th");
-  titleHeader.textContent = "Title";
-  headerRow.appendChild(titleHeader);
+    // Create table header cells for each column
+    const titleHeader = document.createElement("th");
+    titleHeader.textContent = "Title";
+    headerRow.appendChild(titleHeader);
 
-  const authorHeader = document.createElement("th");
-  authorHeader.textContent = "Author";
-  headerRow.appendChild(authorHeader);
+    const authorHeader = document.createElement("th");
+    authorHeader.textContent = "Author";
+    headerRow.appendChild(authorHeader);
 
-  const pagesHeader = document.createElement("th");
-  pagesHeader.textContent = "Pages";
-  headerRow.appendChild(pagesHeader);
+    const pagesHeader = document.createElement("th");
+    pagesHeader.textContent = "Pages";
+    headerRow.appendChild(pagesHeader);
 
-  const readHeader = document.createElement("th");
-  readHeader.textContent = "Read";
-  headerRow.appendChild(readHeader);
+    const readHeader = document.createElement("th");
+    readHeader.textContent = "Read";
+    headerRow.appendChild(readHeader);
 
-  const deleteHeader = document.createElement("th");
-  deleteHeader.textContent = "Remove";
-  headerRow.appendChild(deleteHeader);
+    const deleteHeader = document.createElement("th");
+    deleteHeader.textContent = "Remove";
+    headerRow.appendChild(deleteHeader);
 
-  // Add the header row to the table
-  tableEl.appendChild(headerRow);
+    // Add the header row to the table
+    tableEl.appendChild(headerRow);
 
-  // Loop through the books in the library
-  for (let i = 0; i < this.books.length; i++) {
-    const book = this.books[i];
+    // Loop through the books in the library
+    for (let i = 0; i < this.books.length; i++) {
+      const book = this.books[i];
 
-    // Create a table row for the book
-    const row = document.createElement("tr");
-    row.setAttribute("data-index", i);
+      // Create a table row for the book
+      const row = document.createElement("tr");
+      row.setAttribute("data-index", i);
 
-    // Create table cells for each column
-    const titleCell = document.createElement("td");
-    titleCell.textContent = book.title;
-    row.appendChild(titleCell);
+      // Create table cells for each column
+      const titleCell = document.createElement("td");
+      titleCell.textContent = book.title;
+      row.appendChild(titleCell);
 
-    const authorCell = document.createElement("td");
-    authorCell.textContent = book.author;
-    row.appendChild(authorCell);
+      const authorCell = document.createElement("td");
+      authorCell.textContent = book.author;
+      row.appendChild(authorCell);
 
-    const pagesCell = document.createElement("td");
-    pagesCell.textContent = book.pages;
-    row.appendChild(pagesCell);
+      const pagesCell = document.createElement("td");
+      pagesCell.textContent = book.pages;
+      row.appendChild(pagesCell);
 
-    const readCell = document.createElement("td");
-    readCell.textContent = book.read ? "Read" : "Not read yet";
-    row.appendChild(readCell);
+      const readCell = document.createElement("td");
+      readCell.textContent = book.read ? "Read" : "Not read yet";
+      row.appendChild(readCell);
 
-    const deleteCell = document.createElement("td");
+      const deleteCell = document.createElement("td");
 
-    // Add the delete button to the cell
-    addDeleteButton(deleteCell, i);
+      // Add the delete button to the cell
+      this.addDeleteButton(deleteCell, i);
 
-    // Add the delete cell to the row
-    row.appendChild(deleteCell);
+      // Add the delete cell to the row
+      row.appendChild(deleteCell);
 
-    // Add the row to the table
-    tableEl.appendChild(row);
+      // Add the row to the table
+      tableEl.appendChild(row);
+    }
+
+    // Add the table to the card container
+    this.cardContainer.appendChild(tableEl);
   }
-
-  // Add the table to the card container
-  cardContainer.appendChild(tableEl);
 }
-
 // Function to add a delete button to a cell
 function addDeleteButton(cell, index) {
   // Create a delete button
