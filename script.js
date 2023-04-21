@@ -1,8 +1,8 @@
 // Variables
 const addBookBtn = document.querySelector("#addBookBtn");
-const cardContainer = document.querySelector("#cardContainer");
+//const cardContainer = document.querySelector("#cardContainer");
 // library array
-let myLibrary = [];
+//let myLibrary = [];
 
 // book constructor
 class Book {
@@ -118,8 +118,8 @@ class addBookToLibrary {
     cell.appendChild(deleteBtn);
 
     // Add an event listener to the delete button
-    deleteBtn.addEventListener("click", function () {
-      this.addDeleteButton = this.addDeleteButton.bind(this);
+    deleteBtn.addEventListener("click", () => {
+      //this.addDeleteButton = this.addDeleteButton.bind(this);
       // Get the index of the book from the data-index attribute
       const index = parseInt(cell.parentElement.getAttribute("data-index"));
 
@@ -133,7 +133,8 @@ class addBookToLibrary {
     //cell.appendChild(deleteBtn);
   }
 }
-// Add event listener to the add book button
+let myLibrary = new addBookToLibrary();
+// Add event listener to the add book button line 137
 addBookBtn.addEventListener("click", function () {
   // Display a form to add a new book
   const form = document.createElement("form");
@@ -195,7 +196,9 @@ addBookBtn.addEventListener("click", function () {
     const read = readInput.checked;
 
     // Add the new book to the library
-    addBookToLibrary(title, author, pages, read);
+    let library = new addBookToLibrary();
+    library.displayBooks();
+    myLibrary.addBook(title, author, pages, read);
 
     // Clear the form
     titleInput.value = "";
@@ -204,7 +207,7 @@ addBookBtn.addEventListener("click", function () {
     readInput.checked = false;
 
     // Display the updated library
-    this.displayBooks();
+    myLibrary.displayBooks();
   });
 
   // Add the form to the card container
