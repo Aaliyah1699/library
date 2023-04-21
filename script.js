@@ -33,9 +33,9 @@ class addBookToLibrary {
   }
 
 // Display the books in the library
-function displayBooks() {
+ displayBooks() {
   // Clear the card container
-  cardContainer.innerHTML = "";
+  this.cardContainer.innerHTML = "";
 
   // Create a table element
   const tableEl = document.createElement("table");
@@ -68,8 +68,8 @@ function displayBooks() {
   tableEl.appendChild(headerRow);
 
   // Loop through the books in the library
-  for (let i = 0; i < myLibrary.length; i++) {
-    const book = myLibrary[i];
+  for (let i = 0; i < this.books.length; i++) {
+    const book = this.books[i];
 
     // Create a table row for the book
     const row = document.createElement("tr");
