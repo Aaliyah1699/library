@@ -107,30 +107,32 @@ class addBookToLibrary {
     // Add the table to the card container
     this.cardContainer.appendChild(tableEl);
   }
+
+  // Function to add a delete button to a cell
+  addDeleteButton(cell, index) {
+    // Create a delete button
+    const deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("deleteBtn");
+    deleteBtn.innerHTML =
+      '<i class="fa-regular fa-trash-can fa-xl" style="color: #800000;"></i>';
+    cell.appendChild(deleteBtn);
+
+    // Add an event listener to the delete button
+    deleteBtn.addEventListener("click", function () {
+      this.addDeleteButton = this.addDeleteButton.bind(this);
+      // Get the index of the book from the data-index attribute
+      const index = parseInt(cell.parentElement.getAttribute("data-index"));
+
+      // Remove the book from the library
+      this.removeBook(index);
+
+      // Update the display
+      this.displayBooks();
+    });
+
+    //cell.appendChild(deleteBtn);
+  }
 }
-// Function to add a delete button to a cell
-function addDeleteButton(cell, index) {
-  // Create a delete button
-  const deleteBtn = document.createElement("button");
-  deleteBtn.classList.add("deleteBtn");
-  deleteBtn.innerHTML =
-    '<i class="fa-regular fa-trash-can fa-xl" style="color: #800000;"></i>';
-  cell.appendChild(deleteBtn);
-
-  // Add an event listener to the delete button
-  deleteBtn.addEventListener("click", function () {
-    // Get the index of the book from the data-index attribute
-    const index = parseInt(cell.parentElement.getAttribute("data-index"));
-
-    // Remove the book from the library
-    myLibrary.splice(index, 1);
-
-    // Update the display
-    displayBooks();
-  });
-  cell.appendChild(deleteBtn);
-}
-
 // Add event listener to the add book button
 addBookBtn.addEventListener("click", function () {
   // Display a form to add a new book
@@ -202,7 +204,7 @@ addBookBtn.addEventListener("click", function () {
     readInput.checked = false;
 
     // Display the updated library
-    displayBooks();
+    this.displayBooks();
   });
 
   // Add the form to the card container
